@@ -1,5 +1,9 @@
 import { Controller, Get } from '@nestjs/common';
+import { Ctx, MessagePattern, Payload, RedisContext } from '@nestjs/microservices';
+
 import { SubProjectService } from './sub-project.service';
+import { MC_PATTERN_SUB_PROJECT } from '../../monorepo-test/src/constants';
+import { IData } from '../../monorepo-test/src/contracts/iData';
 
 @Controller()
 export class SubProjectController {
@@ -8,5 +12,11 @@ export class SubProjectController {
   @Get()
   getHello(): string {
     return this.subProjectService.getHello();
+  }
+
+  @MessagePattern(MC_PATTERN_SUB_PROJECT)
+  async run(@Payload() data: IData, @Ctx() context: RedisContext) {
+    console.log(data, context.getChannel());
+    this.subProjectService.run(data)
   }
 }
