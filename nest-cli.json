@@ -25,6 +25,15 @@
       "compilerOptions": {
         "tsConfigPath": "apps/sub-project/tsconfig.app.json"
       }
+    },
+    "nifty-libs": {
+      "type": "library",
+      "root": "libs/nifty-libs",
+      "entryFile": "index",
+      "sourceRoot": "libs/nifty-libs/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/nifty-libs/tsconfig.lib.json"
+      }
     }
   }
 }

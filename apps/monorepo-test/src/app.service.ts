@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 
 import { MC_NAME_SUB_PROJECT, MC_PATTERN_SUB_PROJECT } from './constants';
-import { IData } from './contracts/iData';
+import { IData } from '../../../libs/nifty-libs/src/contracts/iData';
 
 @Injectable()
 export class AppService {

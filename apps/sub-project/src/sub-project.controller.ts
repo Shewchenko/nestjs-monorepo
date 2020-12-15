@@ -3,7 +3,7 @@ import { Ctx, MessagePattern, Payload, RedisContext } from '@nestjs/microservice
 
 import { SubProjectService } from './sub-project.service';
 import { MC_PATTERN_SUB_PROJECT } from '../../monorepo-test/src/constants';
-import { IData } from '../../monorepo-test/src/contracts/iData';
+import { IData } from '../../../libs/nifty-libs/src/contracts/iData';
 
 @Controller()
 export class SubProjectController {

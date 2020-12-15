@@ -1,11 +1,18 @@
 import { Injectable, Logger } from '@nestjs/common';
 
-import { IData } from '../../monorepo-test/src/contracts/iData';
+import { IData } from '../../../libs/nifty-libs/src/contracts/iData';
+import { TasksService } from '@app/nifty-libs/tasks/tasks.service';
 
 @Injectable()
 export class SubProjectService {
 
   logger = new Logger(SubProjectService.name)
+
+  constructor(
+    private readonly tasksService: TasksService
+  ) {
+    this.logger.debug(tasksService.getName())
+  }
 
   getHello(): string {
     return 'Hello World!';
